@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <caption>
+        <center>
+            <p style="font-weight: bolder;font-size: larger;">
+            FETCHED DATA FROM Application Programming Interface
+            </p>
+        </caption>
+    <table style="background-color: azure;border: 2px;text-align: center;">
+        <thead>
+        <th class="theading">ID</th>
+        <th class="theading">PICTURES</th>
+        </thead>
+        <tbody>
+            <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>  
+            </tr>
+            <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+             <tr class="trows">
+                <td class="data1"></td>
+                <td class="data2"></td>
+            </tr>
+            
+            
+        </tbody>
+    </table>
+    </center>
+</body>
+<script>
+    fetch("https://api.github.com/users").
+then((response)=>{
+    return response.json();
+}).
+then((data)=>{
+    let temp1=document.querySelectorAll(".data1");
+    let temp2=document.querySelectorAll(".data2");
+    let temp=document.querySelectorAll(".trows");
+    let y=0;
+    temp1.forEach((val)=>{
+          val.textContent=data[y].id;
+          y++;
+    }) 
+    let z=0; 
+    temp2.forEach((val)=>{
+        let temp3=document.createElement("img");
+        temp3.src=data[z].avatar_url;
+        temp2[z].append(temp3);
+        z++;
+    })
+})
+</script>
+</html>
